@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GD20120316q16UFO", "GD20120316q16UFO\GD20120316q16UFO\GD20120316q16UFO.csproj", "{22DD2392-6169-4163-BE5C-4E4A5B9A3C4D}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "GD20120316q16UFOContent", "GD20120316q16UFO\GD20120316q16UFOContent\GD20120316q16UFOContent.contentproj", "{93B9DEC0-9B7C-4F83-86D4-EB19629627F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagerLib", "ManagerLib\ManagerLib.csproj", "{6A610156-0B2E-46D7-866E-4FAA1627F81C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22DD2392-6169-4163-BE5C-4E4A5B9A3C4D}.Debug|x86.ActiveCfg = Debug|x86
+		{22DD2392-6169-4163-BE5C-4E4A5B9A3C4D}.Debug|x86.Build.0 = Debug|x86
+		{22DD2392-6169-4163-BE5C-4E4A5B9A3C4D}.Release|x86.ActiveCfg = Release|x86
+		{22DD2392-6169-4163-BE5C-4E4A5B9A3C4D}.Release|x86.Build.0 = Release|x86
+		{93B9DEC0-9B7C-4F83-86D4-EB19629627F7}.Debug|x86.ActiveCfg = Debug|x86
+		{93B9DEC0-9B7C-4F83-86D4-EB19629627F7}.Release|x86.ActiveCfg = Release|x86
+		{6A610156-0B2E-46D7-866E-4FAA1627F81C}.Debug|x86.ActiveCfg = Debug|x86
+		{6A610156-0B2E-46D7-866E-4FAA1627F81C}.Debug|x86.Build.0 = Debug|x86
+		{6A610156-0B2E-46D7-866E-4FAA1627F81C}.Release|x86.ActiveCfg = Release|x86
+		{6A610156-0B2E-46D7-866E-4FAA1627F81C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

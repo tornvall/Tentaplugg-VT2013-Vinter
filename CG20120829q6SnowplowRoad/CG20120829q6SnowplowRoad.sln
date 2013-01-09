@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CG20120829q6SnowplowRoad", "CG20120829q6SnowplowRoad\CG20120829q6SnowplowRoad\CG20120829q6SnowplowRoad.csproj", "{778504DD-8A45-49CD-AB66-C8E14818BAB8}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "CG20120829q6SnowplowRoadContent", "CG20120829q6SnowplowRoad\CG20120829q6SnowplowRoadContent\CG20120829q6SnowplowRoadContent.contentproj", "{01237EE0-7C76-4647-8E7A-61ADFEFB6E88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{778504DD-8A45-49CD-AB66-C8E14818BAB8}.Debug|x86.ActiveCfg = Debug|x86
+		{778504DD-8A45-49CD-AB66-C8E14818BAB8}.Debug|x86.Build.0 = Debug|x86
+		{778504DD-8A45-49CD-AB66-C8E14818BAB8}.Release|x86.ActiveCfg = Release|x86
+		{778504DD-8A45-49CD-AB66-C8E14818BAB8}.Release|x86.Build.0 = Release|x86
+		{01237EE0-7C76-4647-8E7A-61ADFEFB6E88}.Debug|x86.ActiveCfg = Debug|x86
+		{01237EE0-7C76-4647-8E7A-61ADFEFB6E88}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
