@@ -17,23 +17,6 @@ namespace GD20120316q16UFO.Entities {
             BoundingBox = boundingbox;
         }
 
-        public void HandleInput(ActionType type) {
-            switch(type) {
-                case ActionType.Up:
-                    Direction = new Vector2(0, -1);
-                    break;
-                case ActionType.Down:
-                    Direction = new Vector2(0, 1);
-                    break;
-                case ActionType.Right:
-                    Direction = new Vector2(1, 0);
-                    break;
-                case ActionType.Left:
-                    Direction = new Vector2(-1, 0);
-                    break;
-            }
-        }
-
         public override void Update(GameTime gameTime) {
            
         }
