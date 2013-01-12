@@ -19,7 +19,6 @@ namespace ManagerLib.Managers {
                 if(entity.IsRenderable)
                     entity.Draw(gameTime, spriteBatch);
             }
-
         }
     }
 }

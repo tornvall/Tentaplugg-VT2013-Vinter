@@ -9,14 +9,13 @@ using ManagerLib;
 
 namespace GD20120316q16UFO.Entities {
     public class UFO : AbstractEntity {
-        public UFO(Vector2 pos, Texture2D texture, Rectangle boundingbox)
-        :base()
+        public UFO(GraphicsDevice device, Vector2 pos, Texture2D texture, Rectangle boundingbox)
+        :base(device)
         {
             Position = pos;
             Texture = texture;
             BoundingBox = boundingbox;
             IsRenderable = true;
-
         }
 
         public override void Update(GameTime gameTime) {
@@ -24,7 +23,7 @@ namespace GD20120316q16UFO.Entities {
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Texture, Position, null,Color.White,0f, Vector2.Zero, 0.5f,SpriteEffects.None,0f);
+            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None,0f);
         }
     }
 }

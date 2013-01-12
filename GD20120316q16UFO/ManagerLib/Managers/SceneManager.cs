@@ -19,6 +19,7 @@ namespace ManagerLib.Managers {
         public void AddEntity(AbstractEntity entity) {
             _entities.Add(entity);
         }
+
         public void AddPlayer(AbstractEntity entity) {
             _player = entity;
             _entities.Add(_player);
@@ -27,19 +28,15 @@ namespace ManagerLib.Managers {
         public List<AbstractEntity> GetEntities() {
             return _entities;
         }
+
         public AbstractEntity GetPlayer() {
             return _player;
         }
 
         public void Update(GameTime gameTime) {
             foreach(AbstractEntity entity in _entities) {
-                if(entity.IsMoveable) {
-                    entity.Position += entity.Direction * entity.Speed;
-                }
+                entity.Update(gameTime);
             }
         }
-        
-
-        
     }
 }

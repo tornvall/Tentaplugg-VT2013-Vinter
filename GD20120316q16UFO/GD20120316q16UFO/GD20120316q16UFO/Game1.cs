@@ -31,9 +31,9 @@ namespace GD20120316q16UFO {
         protected override void LoadContent() {            
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            AbstractEntity ufo = new UFO(new Vector2(50, 50), Content.Load<Texture2D>("Sprites/ufo"), new Rectangle(0,0,50,50));
+            AbstractEntity ufo = new UFO(graphics.GraphicsDevice, new Vector2(50, 50), Content.Load<Texture2D>("Sprites/ufo"), new Rectangle(0,0,50,50));
 
-            AbstractEntity fire = new Fire(new Vector2(250, 250), Content.Load<Texture2D>("Sprites/fire"), new Rectangle(0, 0, 50, 50));
+            AbstractEntity fire = new Fire(graphics.GraphicsDevice, new Vector2(250, 250), Content.Load<Texture2D>("Sprites/fire"), new Rectangle(0, 0, 50, 50));
 
             engine.GetSceneManager().AddPlayer(ufo);
             engine.GetSceneManager().AddEntity(fire);   
