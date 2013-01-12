@@ -19,6 +19,10 @@ namespace ManagerLib.Managers {
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
+            foreach(AbstractEntity entity in _sceneManager.GetEntities()){
+                if(entity.IsRenderable)
+                    entity.Draw(gameTime, spriteBatch);
+            }
 
         }
     }

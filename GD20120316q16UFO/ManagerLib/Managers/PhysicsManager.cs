@@ -13,8 +13,23 @@ namespace ManagerLib.Managers {
             _sceneManager = sceneManager;
         }
 
-        public void Update(GameTime gameTime) {
+        public void Update(GameTime gameTime) {            
+            foreach(AbstractEntity source in _sceneManager.GetEntities()) {
+                if(source.IsCollideable && source.IsMoveable) {
+                    foreach(AbstractEntity target in _sceneManager.GetEntities()) {
+                        if(target.IsCollideable) {
+                            if(source != target) {
 
+                                Rectangle sizeOfCollision = Rectangle.Intersect(source.BoundingBox, target.BoundingBox);
+                                if(sizeOfCollision.Width > 0 || sizeOfCollision.Height > 0){
+                                    source.Direction *= -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
     }
 }

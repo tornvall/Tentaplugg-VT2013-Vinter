@@ -17,6 +17,17 @@ namespace ManagerLib.GO {
         public Rectangle BoundingBox { get; set; }
         public Texture2D Texture { get; set; }
 
+        public AbstractEntity() {
+            Position = Vector2.Zero;
+            Direction = Vector2.Zero;
+            Speed = 0f;
+            IsMoveable = false;
+            IsRenderable = false;
+            IsCollideable = false;
+            BoundingBox = Rectangle.Empty;
+            Texture = null;
+        }
+
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
     }
