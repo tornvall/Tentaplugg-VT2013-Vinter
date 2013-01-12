@@ -59,7 +59,11 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="GO\AGameObject.cs" />
+    <Compile Include="Managers\PhysicsManager.cs" />
+    <Compile Include="Managers\RenderManager.cs" />
+    <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

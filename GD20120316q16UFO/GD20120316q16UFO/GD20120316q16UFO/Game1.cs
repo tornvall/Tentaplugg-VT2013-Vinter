@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using ManagerLib;
 
 namespace GD20120316q16UFO {
     /// <summary>
@@ -16,6 +17,7 @@ namespace GD20120316q16UFO {
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Engine engine;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
@@ -30,7 +32,7 @@ namespace GD20120316q16UFO {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-
+            engine = new Engine(Content);
             base.Initialize();
         }
 
@@ -42,6 +44,7 @@ namespace GD20120316q16UFO {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            engine.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -60,8 +63,13 @@ namespace GD20120316q16UFO {
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime) {
             // Allows the game to exit
-            if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+
+            KeyboardState keyboard = Keyboard.GetState();
+
+            if(keyboard.IsKeyDown(Keys.Escape))
                 this.Exit();
+
+                       
 
             // TODO: Add your update logic here
 
