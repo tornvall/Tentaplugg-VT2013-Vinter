@@ -24,10 +24,10 @@ namespace ManagerLib {
             _physicsManager = new PhysicsManager(_sceneManager);
             _renderManager = new RenderManager(_sceneManager);            
         }
-        public SceneManager getSceneManager() {
+        public SceneManager GetSceneManager() {
             return _sceneManager;
         }
-        public InputManager getInputManager(){
+        public InputManager GetInputManager(){
             return _inputManager;
         }
 

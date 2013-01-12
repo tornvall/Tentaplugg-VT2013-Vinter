@@ -13,9 +13,6 @@ using ManagerLib.GO;
 using GD20120316q16UFO.Entities;
 
 namespace GD20120316q16UFO {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -26,69 +23,50 @@ namespace GD20120316q16UFO {
             Content.RootDirectory = "Content";
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
-        protected override void Initialize() {
-            // TODO: Add your initialization logic here
+        protected override void Initialize() {       
             engine = new Engine();
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
-        protected override void LoadContent() {
-            // Create a new SpriteBatch, which can be used to draw textures.
+        protected override void LoadContent() {            
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             AbstractEntity ufo = new UFO(new Vector2(50, 50), Content.Load<Texture2D>("Sprites/ufo"), new Rectangle(0,0,50,50));
 
-            engine.getSceneManager().AddEntity(ufo);
-            // TODO: use this.Content to load your game content here
+            AbstractEntity fire = new Fire(new Vector2(250, 250), Content.Load<Texture2D>("Sprites/fire"), new Rectangle(0, 0, 50, 50));
+
+            engine.GetSceneManager().AddPlayer(ufo);
+            engine.GetSceneManager().AddEntity(fire);   
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent() {
-            // TODO: Unload any non ContentManager content here
+            
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime) {
-            // Allows the game to exit
+        protected override void Update(GameTime gameTime) {            
+            engine.Update(gameTime);
 
-            KeyboardState keyboard = Keyboard.GetState();
-
-            if(keyboard.IsKeyDown(Keys.Escape))
-                this.Exit();
-
-                       
-
-            // TODO: Add your update logic here
+            if(engine.GetInputManager().IsKeyPressed(Keys.Escape))
+                Exit();
+            if(engine.GetInputManager().IsKeyPressed(Keys.Up))
+                engine.GetSceneManager().GetPlayer().Direction = new Vector2(0,-1);
+            if(engine.GetInputManager().IsKeyPressed(Keys.Down))
+                engine.GetSceneManager().GetPlayer().Direction = new Vector2(0, 1);
+            if(engine.GetInputManager().IsKeyPressed(Keys.Left))
+                engine.GetSceneManager().GetPlayer().Direction = new Vector2(-1, 0);
+            if(engine.GetInputManager().IsKeyPressed(Keys.Right))
+                engine.GetSceneManager().GetPlayer().Direction = new Vector2(1, 0);                                           
 
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            engine.Draw(gameTime, spriteBatch);
 
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

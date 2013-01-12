@@ -21,10 +21,14 @@ namespace ManagerLib.Managers {
         }
         public void AddPlayer(AbstractEntity entity) {
             _player = entity;
+            _entities.Add(_player);
         }
 
         public List<AbstractEntity> GetEntities() {
             return _entities;
+        }
+        public AbstractEntity GetPlayer() {
+            return _player;
         }
 
         public void Update(GameTime gameTime) {
@@ -34,26 +38,8 @@ namespace ManagerLib.Managers {
                 }
             }
         }
+        
 
-
-
-        public void PerformAction(ActionType type) {
-            switch(type) {
-                case ActionType.Up:
-                    _player.Direction = new Vector2(0,-1);
-                    break;
-                case ActionType.Down:
-                    _player.Direction = new Vector2(0, 1);
-                    break;
-                case ActionType.Right:
-                    _player.Direction = new Vector2(1, 0);
-                    break;
-                case ActionType.Left:
-                    _player.Direction = new Vector2(-1, 0);
-                    break;
-                default:
-                    break;
-            }
-        }
+        
     }
 }

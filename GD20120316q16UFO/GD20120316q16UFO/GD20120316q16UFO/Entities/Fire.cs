@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ManagerLib;
 
 namespace GD20120316q16UFO.Entities {
-    public class UFO : AbstractEntity {
-        public UFO(Vector2 pos, Texture2D texture, Rectangle boundingbox)
+    public class Fire : AbstractEntity {
+        public Fire(Vector2 pos, Texture2D texture, Rectangle boundingbox)
         :base()
         {
             Position = pos;
