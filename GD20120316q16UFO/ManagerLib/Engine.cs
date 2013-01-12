@@ -16,20 +16,28 @@ namespace ManagerLib {
         private SceneManager _sceneManager;
         private PhysicsManager _physicsManager;
         private RenderManager _renderManager;
+        private InputManager _inputManager;
 
         public Engine() {
             _sceneManager = new SceneManager();
+            _inputManager = new InputManager(_sceneManager);
             _physicsManager = new PhysicsManager(_sceneManager);
             _renderManager = new RenderManager(_sceneManager);            
         }
         public void AddEntity(AbstractEntity entity) {
             _sceneManager.AddEntity(entity);
         }
+        public void AddPlayer(AbstractEntity entity) {
+            _sceneManager.AddPlayer(entity);
+        }
+        public void AddInput(Keys key, ActionType type) {
+            _inputManager.AddInput(key, type);
+        }
 
         public void Update(GameTime gameTime) {
+            _inputManager.Update(gameTime);
             _sceneManager.Update(gameTime);
-            _physicsManager.Update(gameTime);
-            _renderManager.Update(gameTime);
+            _physicsManager.Update(gameTime);            
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
