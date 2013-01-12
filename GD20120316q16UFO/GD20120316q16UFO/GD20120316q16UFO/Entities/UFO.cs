@@ -8,8 +8,12 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace GD20120316q16UFO.Entities {
     public class UFO : AbstractEntity {
-        public UFO(Vector2 pos, Texture2D texture, Rectangle boundingbox) {
-
+        public UFO(Vector2 pos, Texture2D texture, Rectangle boundingbox)
+        :base()
+        {
+            Position = pos;
+            Texture = texture;
+            BoundingBox = boundingbox;
         }
 
         public override void Update(GameTime gameTime) {
@@ -17,7 +21,7 @@ namespace GD20120316q16UFO.Entities {
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
-            
+            spriteBatch.Draw(Texture, Position, Color.White);
         }
     }
 }
