@@ -30,13 +30,13 @@ namespace GD20120316q16UFO.Entities {
             if(directionX == 0 && directionY == 0)
                 directionX = 1;
 
-            Direction.X = directionX;
-            Direction.Y = directionY;
+            Direction = new Vector2(directionX, directionY);            
         }
 
         public override void Update(GameTime gameTime) {
-            Position.X = (float)(Direction.X * (gameTime.ElapsedGameTime.Milliseconds / 1000));
-            Position.Y = (float)(Direction.Y * (gameTime.ElapsedGameTime.Milliseconds / 1000));
+
+            Position = new Vector2((float)(Direction.X * (gameTime.ElapsedGameTime.Milliseconds / 1000)),
+                (float)(Direction.Y * (gameTime.ElapsedGameTime.Milliseconds / 1000)));
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {

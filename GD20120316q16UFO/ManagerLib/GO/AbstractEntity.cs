@@ -18,13 +18,13 @@ namespace ManagerLib.GO {
         public Texture2D Texture { get; set; }
 
         public AbstractEntity() {
-            Position = Vector2.Zero;
-            Direction = Vector2.Zero;
+            Position = new Vector2(0, 0);
+            Direction = new Vector2(0,0);
             Speed = 0f;
             IsMoveable = false;
             IsRenderable = false;
             IsCollideable = false;
-            BoundingBox = Rectangle.Empty;
+            BoundingBox = new Rectangle(0, 0, 0, 0);
             Texture = null;
         }
 
