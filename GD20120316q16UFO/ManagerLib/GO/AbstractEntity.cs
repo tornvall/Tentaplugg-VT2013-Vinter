@@ -15,6 +15,7 @@ namespace ManagerLib.GO {
         public Boolean IsRenderable { get; set; }
         public Boolean IsCollideable { get; set; }
         public Rectangle BoundingBox { get; set; }
+        public Texture2D Texture { get; set; }
 
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(GameTime gameTime, SpriteBatch spriteBatch);
