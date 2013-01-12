@@ -9,18 +9,34 @@ using ManagerLib;
 
 namespace GD20120316q16UFO.Entities {
     public class Fire : AbstractEntity {
+        Random random = new Random();
+
         public Fire(Vector2 pos, Texture2D texture, Rectangle boundingbox)
-        :base()
+            :base()
         {
             Position = pos;
             Texture = texture;
             BoundingBox = boundingbox;
             IsRenderable = true;
 
+            NewDirection();
+        }
+
+        public void NewDirection()
+        {
+            float directionX = (float)(random.NextDouble() - 0.5);
+            float directionY = (float)(random.NextDouble() - 0.5);
+
+            if(directionX == 0 && directionY == 0)
+                directionX = 1;
+
+            Direction.X = directionX;
+            Direction.Y = directionY;
         }
 
         public override void Update(GameTime gameTime) {
-           
+            Position.X = (float)(Direction.X * (gameTime.ElapsedGameTime.Milliseconds / 1000));
+            Position.Y = (float)(Direction.Y * (gameTime.ElapsedGameTime.Milliseconds / 1000));
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
