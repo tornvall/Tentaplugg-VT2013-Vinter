@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using ManagerLib.GO;
+using System.Threading;
 
 namespace ManagerLib.Managers {
     public class PhysicsManager {
         private SceneManager _sceneManager;
+        private Vector2 _wind;
+        private Random _random;     
 
         public PhysicsManager(SceneManager sceneManager){
             _sceneManager = sceneManager;
+            _wind = new Vector2(0, 0);
+            _random = new Random();
+            StartWind(10000);
         }
 
         public void Update(GameTime gameTime) {            
@@ -30,6 +36,16 @@ namespace ManagerLib.Managers {
                 }
             }
         }
+
+        private void StartWind(int interval) {
+            Timer timer = new Timer(new TimerCallback(GenerateGust), null, 0, interval);         
+        }
+
+        private void GenerateGust(object state) {
+            _wind.X = (float)_random.Next(-1, 2);
+            _wind.Y = (float)_random.Next(-1, 2); 
+        
+        }      
 
     }
 }
