@@ -24,14 +24,11 @@ namespace ManagerLib {
             _physicsManager = new PhysicsManager(_sceneManager);
             _renderManager = new RenderManager(_sceneManager);            
         }
-        public void AddEntity(AbstractEntity entity) {
-            _sceneManager.AddEntity(entity);
+        public SceneManager getSceneManager() {
+            return _sceneManager;
         }
-        public void AddPlayer(AbstractEntity entity) {
-            _sceneManager.AddPlayer(entity);
-        }
-        public void AddInput(Keys key, ActionType type) {
-            _inputManager.AddInput(key, type);
+        public InputManager getInputManager(){
+            return _inputManager;
         }
 
         public void Update(GameTime gameTime) {

@@ -8,34 +8,18 @@ using Microsoft.Xna.Framework.Input;
 namespace ManagerLib.Managers {
     public class InputManager {
         private SceneManager _sceneManager;
-        Dictionary<Keys, ActionType> _inputDictionary;
+        private KeyboardState _keyboardState;
 
         public InputManager(SceneManager sceneManager) {
-            _sceneManager = sceneManager;
-            _inputDictionary = new Dictionary<Keys, ActionType>();
+            _sceneManager = sceneManager;            
         }
 
-        public void AddInput(Keys key, ActionType type) {
-            try {
-                _inputDictionary.Add(key, type);
-            } catch(Exception) {                
-                throw;
-            }
+        public Boolean IsKeyPressed(Keys key) {
+            return _keyboardState.IsKeyDown(key);
         }
 
         public void Update(GameTime gameTime) {
-
-            KeyboardState keyboardState = Keyboard.GetState();
-
-            foreach(Keys item in keyboardState.GetPressedKeys()) {
-
-                ActionType type;
-                _inputDictionary.TryGetValue(item,out type);
-
-                if(type != null)
-                    _sceneManager.PerformAction(type);
-            }
-            
+            _keyboardState = Keyboard.GetState();            
         }
 
     }

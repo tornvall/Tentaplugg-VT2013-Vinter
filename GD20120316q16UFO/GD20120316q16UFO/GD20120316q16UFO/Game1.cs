@@ -48,7 +48,7 @@ namespace GD20120316q16UFO {
 
             AbstractEntity ufo = new UFO(new Vector2(50, 50), Content.Load<Texture2D>("Sprites/ufo"), new Rectangle(0,0,50,50));
 
-            engine.AddEntity(ufo);
+            engine.getSceneManager().AddEntity(ufo);
             // TODO: use this.Content to load your game content here
         }
 
