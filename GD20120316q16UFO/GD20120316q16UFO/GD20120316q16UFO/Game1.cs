@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using ManagerLib;
+using ManagerLib.GO;
+using GD20120316q16UFO.Entities;
 
 namespace GD20120316q16UFO {
     /// <summary>
@@ -43,6 +45,10 @@ namespace GD20120316q16UFO {
         protected override void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            AbstractEntity ufo = new UFO(new Vector2(50, 50), Content.Load<Texture2D>("Sprites/ufo"), new Rectangle(0,0,50,50));
+
+            engine.AddEntity(ufo);
             // TODO: use this.Content to load your game content here
         }
 

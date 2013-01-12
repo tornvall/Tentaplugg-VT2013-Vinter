@@ -9,7 +9,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ManagerLib.Managers {
     public class SceneManager {
-        private  List<AbstractEntity> _entities;                
+        private  List<AbstractEntity> _entities;
+                
 
         public SceneManager() {
             _entities = new List<AbstractEntity>();         

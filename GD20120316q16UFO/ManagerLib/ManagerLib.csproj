@@ -59,6 +59,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionType.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="GO\AbstractEntity.cs" />
     <Compile Include="Managers\PhysicsManager.cs" />

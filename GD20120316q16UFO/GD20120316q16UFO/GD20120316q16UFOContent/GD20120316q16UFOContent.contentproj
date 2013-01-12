@@ -30,14 +30,14 @@
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.VideoImporters, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fire.png">
+    <Compile Include="Sprites\fire.png">
       <Name>fire</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ufo.png">
+    <Compile Include="Sprites\ufo.png">
       <Name>ufo</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
