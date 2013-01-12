@@ -9,14 +9,19 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ManagerLib.Managers {
     public class SceneManager {
-        private List<AGameObject> _gameObjects;
+        private  List<AbstractEntity> _entities;
+                
 
-        public SceneManager(List<AGameObject> gameObjects, ContentManager contentManager) {
-            _gameObjects = gameObjects;           
+        public SceneManager() {
+            _entities = new List<AbstractEntity>();         
         }
 
-        public void LoadContent(ContentManager content) {
-            
+        public void AddEntity(AbstractEntity entity) {
+            _entities.Add(entity);
+        }
+
+        public List<AbstractEntity> GetEntities() {
+            return _entities;
         }
 
         public void Update(GameTime gameTime) {

@@ -8,10 +8,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace ManagerLib.Managers {
     public class RenderManager {
-        List<AGameObject> _gameObjects;
+        private SceneManager _sceneManager;
 
-        public RenderManager(List<AGameObject> gameObjects) {
-            _gameObjects = gameObjects;
+        public RenderManager(SceneManager sceneManager) {
+            _sceneManager = sceneManager;
         }
 
         public void Update(GameTime gameTime) {

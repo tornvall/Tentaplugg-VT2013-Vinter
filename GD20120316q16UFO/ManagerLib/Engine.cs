@@ -13,22 +13,17 @@ using ManagerLib.GO;
 
 namespace ManagerLib {
     public class Engine {
+        private SceneManager _sceneManager;
         private PhysicsManager _physicsManager;
         private RenderManager _renderManager;
-        private SceneManager _sceneManager;
 
-        private List<AGameObject> _gameObjects;
-
-        public Engine(ContentManager content) {
-            _gameObjects = new List<AGameObject>();
-
-            _physicsManager = new PhysicsManager(_gameObjects);
-            _renderManager = new RenderManager(_gameObjects);
-            _sceneManager = new SceneManager(_gameObjects, content);
+        public Engine() {
+            _sceneManager = new SceneManager();
+            _physicsManager = new PhysicsManager(_sceneManager);
+            _renderManager = new RenderManager(_sceneManager);            
         }
-
-        public void LoadContent(ContentManager content) {
-            _sceneManager.LoadContent(content);
+        public void AddEntity(AbstractEntity entity) {
+            _sceneManager.AddEntity(entity);
         }
 
         public void Update(GameTime gameTime) {

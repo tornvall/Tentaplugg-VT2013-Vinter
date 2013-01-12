@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine.cs" />
-    <Compile Include="GO\AGameObject.cs" />
+    <Compile Include="GO\AbstractEntity.cs" />
     <Compile Include="Managers\PhysicsManager.cs" />
     <Compile Include="Managers\RenderManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />

@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace GD20120316q16UFO.Entities {
-    public class UFO : AGameObject {
+    public class UFO : AbstractEntity {
 
         public override void Update(GameTime gameTime) {
            

@@ -32,7 +32,7 @@ namespace GD20120316q16UFO {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-            engine = new Engine(Content);
+            engine = new Engine();
             base.Initialize();
         }
 
@@ -43,8 +43,6 @@ namespace GD20120316q16UFO {
         protected override void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            engine.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
