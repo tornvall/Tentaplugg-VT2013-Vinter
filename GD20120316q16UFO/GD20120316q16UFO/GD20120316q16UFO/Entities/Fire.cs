@@ -37,7 +37,7 @@ namespace GD20120316q16UFO.Entities {
             if(directionX == 0 && directionY == 0)
                 directionX = 1;
 
-            //Direction = new Vector2(directionX, directionY);            
+            Direction = new Vector2(directionX, directionY);            
         }
 
         public override void Update(GameTime gameTime) {

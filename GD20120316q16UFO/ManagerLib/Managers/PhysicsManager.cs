@@ -30,8 +30,6 @@ namespace ManagerLib.Managers {
                                 if(sizeOfCollision.Width > 0 || sizeOfCollision.Height > 0){                                    
                                     if(source == _sceneManager.GetPlayer())
                                         _sceneManager.IncreaseScore();
-                                    else
-                                        source.Direction *= -1;
                                 }
                             }
                         }
