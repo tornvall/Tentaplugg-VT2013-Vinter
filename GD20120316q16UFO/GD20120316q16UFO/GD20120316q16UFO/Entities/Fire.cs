@@ -12,13 +12,19 @@ namespace GD20120316q16UFO.Entities {
         Random random = new Random();
         int timeCounter = 0;
 
-        public Fire(GraphicsDevice device, Vector2 pos, Texture2D texture, Rectangle boundingbox)
+        public Fire(GraphicsDevice device, Vector2 pos, Texture2D texture)
             :base(device)
         {
             Position = pos;
             Texture = texture;
-            BoundingBox = boundingbox;
+            Scale = 0.5f;
+            BoundingBox = new Rectangle(
+                (int)pos.X,
+                (int)pos.Y,
+                (int)(texture.Width * Scale),
+                (int)(texture.Height * Scale));
             IsRenderable = true;
+            IsCollideable = true;
 
             NewDirection();
         }
@@ -31,7 +37,7 @@ namespace GD20120316q16UFO.Entities {
             if(directionX == 0 && directionY == 0)
                 directionX = 1;
 
-            Direction = new Vector2(directionX, directionY);            
+            //Direction = new Vector2(directionX, directionY);            
         }
 
         public override void Update(GameTime gameTime) {
@@ -58,10 +64,19 @@ namespace GD20120316q16UFO.Entities {
             Position = new Vector2(positionX, positionY);
 
 
+            BoundingBox = new Rectangle(
+                (int)Position.X,
+                (int)Position.Y,
+                (int)(Texture.Width * Scale),
+                (int)(Texture.Height * Scale));
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) {
-            spriteBatch.Draw(Texture, Position, null,Color.White,0f, Vector2.Zero, 0.5f,SpriteEffects.None,0f);
+            spriteBatch.Draw(Texture, Position, null, Color.White, 0f, Vector2.Zero, Scale, SpriteEffects.None, 0f);
+
+            //Texture2D dummyTexture = new Texture2D(Device, 1, 1);
+            //dummyTexture.SetData(new Color[] { Color.White });
+            //spriteBatch.Draw(dummyTexture, BoundingBox, Color.White);
         }
     }
 }

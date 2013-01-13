@@ -21,11 +21,11 @@ namespace ManagerLib.Managers {
 
         public void Update(GameTime gameTime) {            
             foreach(AbstractEntity source in _sceneManager.GetEntities()) {
-                if(source.IsCollideable && source.IsMoveable) {
+                if(source.IsCollideable) {
+                    
                     foreach(AbstractEntity target in _sceneManager.GetEntities()) {
                         if(target.IsCollideable) {
-                            if(source != target) {                                                                
-
+                            if(source != target) {
                                 Rectangle sizeOfCollision = Rectangle.Intersect(source.BoundingBox, target.BoundingBox);
                                 if(sizeOfCollision.Width > 0 || sizeOfCollision.Height > 0){                                    
                                     if(source == _sceneManager.GetPlayer())

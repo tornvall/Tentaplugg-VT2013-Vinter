@@ -45,6 +45,8 @@ namespace ManagerLib.Managers {
         public void Update(GameTime gameTime) {
             foreach(AbstractEntity entity in _entities) {
                 entity.Update(gameTime);
+
+                entity.Position += entity.Direction *entity.Speed;
             }
         }
     }
