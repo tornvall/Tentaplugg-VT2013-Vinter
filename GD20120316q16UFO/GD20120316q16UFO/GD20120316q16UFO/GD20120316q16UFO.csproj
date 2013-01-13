@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Fire.cs" />
+    <Compile Include="Entities\Score.cs" />
     <Compile Include="Entities\UFO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
