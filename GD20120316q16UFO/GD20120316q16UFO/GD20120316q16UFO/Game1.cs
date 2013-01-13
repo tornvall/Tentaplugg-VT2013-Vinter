@@ -47,7 +47,8 @@ namespace GD20120316q16UFO {
 
         protected override void Update(GameTime gameTime) {            
             engine.Update(gameTime);
-
+            if(engine.GetSceneManager().GameHasEnded())
+                Exit();            
             if(engine.GetInputManager().IsKeyPressed(Keys.Escape))
                 Exit();
             if(engine.GetInputManager().IsKeyPressed(Keys.Up))
