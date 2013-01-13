@@ -11,9 +11,11 @@ namespace ManagerLib.Managers {
     public class SceneManager {
         private  List<AbstractEntity> _entities;
         private AbstractEntity _player;
+        private int _scorePoints;
 
         public SceneManager() {
-            _entities = new List<AbstractEntity>();         
+            _entities = new List<AbstractEntity>();
+            _scorePoints = 0;
         }
 
         public void AddEntity(AbstractEntity entity) {
@@ -31,6 +33,13 @@ namespace ManagerLib.Managers {
 
         public AbstractEntity GetPlayer() {
             return _player;
+        }
+
+        public void IncreaseScore() {
+            _scorePoints++;
+        }
+        public int GetScore() {
+            return _scorePoints;
         }
 
         public void Update(GameTime gameTime) {

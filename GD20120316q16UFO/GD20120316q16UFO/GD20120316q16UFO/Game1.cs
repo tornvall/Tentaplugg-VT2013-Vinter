@@ -35,7 +35,7 @@ namespace GD20120316q16UFO {
 
             AbstractEntity fire = new Fire(graphics.GraphicsDevice, new Vector2(250, 250), Content.Load<Texture2D>("Sprites/fire"), new Rectangle(0, 0, 50, 50));
 
-            AbstractEntity score = new Score(graphics.GraphicsDevice, Content.Load<SpriteFont>("Fonts/score"));
+            AbstractEntity score = new Score(graphics.GraphicsDevice, Content.Load<SpriteFont>("Fonts/score"), engine.GetSceneManager());
             engine.GetSceneManager().AddPlayer(ufo);
             engine.GetSceneManager().AddEntity(fire);
             engine.GetSceneManager().AddEntity(score);

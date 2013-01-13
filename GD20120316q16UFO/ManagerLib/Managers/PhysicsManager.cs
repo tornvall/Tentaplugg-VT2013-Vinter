@@ -24,11 +24,14 @@ namespace ManagerLib.Managers {
                 if(source.IsCollideable && source.IsMoveable) {
                     foreach(AbstractEntity target in _sceneManager.GetEntities()) {
                         if(target.IsCollideable) {
-                            if(source != target) {
+                            if(source != target) {                                                                
 
                                 Rectangle sizeOfCollision = Rectangle.Intersect(source.BoundingBox, target.BoundingBox);
-                                if(sizeOfCollision.Width > 0 || sizeOfCollision.Height > 0){
-                                    source.Direction *= -1;
+                                if(sizeOfCollision.Width > 0 || sizeOfCollision.Height > 0){                                    
+                                    if(source == _sceneManager.GetPlayer())
+                                        _sceneManager.IncreaseScore();
+                                    else
+                                        source.Direction *= -1;
                                 }
                             }
                         }
