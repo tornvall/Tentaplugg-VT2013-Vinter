@@ -46,18 +46,18 @@ namespace CG20120829q6SnowplowRoad {
             //_rotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds *
             //    MathHelper.ToRadians(0.1f);
 
-            //if (containerRotationPositive)
-            //{
-            //    containerRotationValue += 0.01f;
-            //    if (containerRotationValue >= 1)
-            //        containerRotationPositive = false;
-            //}
-            //else
-            //{
-            //    containerRotationValue -= 0.01f;
-            //    if (containerRotationValue <= -1)
-            //        containerRotationPositive = true;
-            //}
+            if (containerRotationPositive)
+            {
+                containerRotationValue += 0.01f;
+                if (containerRotationValue >= 1)
+                    containerRotationPositive = false;
+            }
+            else
+            {
+                containerRotationValue -= 0.01f;
+                if (containerRotationValue <= -1)
+                    containerRotationPositive = true;
+            }
         }
 
         public void Draw(Matrix view, Matrix projection)
