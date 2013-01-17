@@ -19,11 +19,13 @@ namespace CG20120829q6SnowplowRoad {
             this.device = device;
             _model = content.Load<Model>("snowplow");
             _position = position;
+            _rotation = 0.0f;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            //throw new NotImplementedException();
+            _rotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds *
+                MathHelper.ToRadians(0.1f);
         }
 
         public void Draw()

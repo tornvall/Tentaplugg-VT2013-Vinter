@@ -43,7 +43,7 @@ namespace CG20120829q6SnowplowRoad {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            snowplow = new Snowplow(Content, GraphicsDevice, new Vector3());
+            snowplow = new Snowplow(Content, GraphicsDevice, Vector3.Zero);
 
             // TODO: use this.Content to load your game content here
         }
