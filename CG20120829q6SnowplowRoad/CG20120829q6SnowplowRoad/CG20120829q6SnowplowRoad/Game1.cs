@@ -45,7 +45,7 @@ namespace CG20120829q6SnowplowRoad {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             snowplow = new Snowplow(Content, GraphicsDevice, Vector3.Zero);
-            _camera = new Camera(GraphicsDevice, new Vector3(0,50,50), Vector3.Zero);
+            _camera = new Camera(GraphicsDevice, new Vector3(0,400,1000), Vector3.Zero);
             // TODO: use this.Content to load your game content here
         }
 
@@ -79,7 +79,7 @@ namespace CG20120829q6SnowplowRoad {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            snowplow.Draw();
+            snowplow.Draw(_camera.View, _camera.Projection);
 
             base.Draw(gameTime);
         }

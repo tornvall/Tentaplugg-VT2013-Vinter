@@ -24,7 +24,7 @@ namespace CG20120829q6SnowplowRoad {
                 MathHelper.PiOver4,
                 device.Viewport.AspectRatio,
                 0.1f,
-                1000f,
+                10000f,
                 out _projection);
 
             _view = Matrix.CreateLookAt(_position, _target, Vector3.Up);

@@ -53,7 +53,7 @@ namespace CG20120829q6SnowplowRoad {
             }
         }
 
-        public void Draw()
+        public void Draw(Matrix view, Matrix projection)
         {
             // Set the position of the camera in world space, for our view matrix.
             //Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 1000.0f);
@@ -76,6 +76,9 @@ namespace CG20120829q6SnowplowRoad {
                     effect.World = transforms[mesh.ParentBone.Index] *
                         Matrix.CreateRotationY(_rotation)
                         * Matrix.CreateTranslation(_position);
+                    effect.View = view;
+                    effect.Projection = projection;
+
                     /*effect.View = Matrix.CreateLookAt(cameraPosition,
                         Vector3.Zero, Vector3.Up);
                     effect.Projection = Matrix.CreatePerspectiveFieldOfView(
