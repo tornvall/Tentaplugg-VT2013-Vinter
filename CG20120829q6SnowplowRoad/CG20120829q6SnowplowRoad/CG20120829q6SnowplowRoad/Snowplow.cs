@@ -20,6 +20,11 @@ namespace CG20120829q6SnowplowRoad {
         private Matrix containerTransform;
         private float containerRotationValue;
 
+        public Vector3 Position {
+            get { return _position; }
+            set { _position = value;}
+        }
+
         public Snowplow(ContentManager content, GraphicsDevice device, Vector3 position)
         {
             this.device = device;
@@ -36,21 +41,23 @@ namespace CG20120829q6SnowplowRoad {
 
         public void Update(GameTime gameTime)
         {
-            _rotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds *
-                MathHelper.ToRadians(0.1f);
+            _position.X -= 2f;
 
-            if (containerRotationPositive)
-            {
-                containerRotationValue += 0.01f;
-                if (containerRotationValue >= 1)
-                    containerRotationPositive = false;
-            }
-            else
-            {
-                containerRotationValue -= 0.01f;
-                if (containerRotationValue <= -1)
-                    containerRotationPositive = true;
-            }
+            //_rotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds *
+            //    MathHelper.ToRadians(0.1f);
+
+            //if (containerRotationPositive)
+            //{
+            //    containerRotationValue += 0.01f;
+            //    if (containerRotationValue >= 1)
+            //        containerRotationPositive = false;
+            //}
+            //else
+            //{
+            //    containerRotationValue -= 0.01f;
+            //    if (containerRotationValue <= -1)
+            //        containerRotationPositive = true;
+            //}
         }
 
         public void Draw(Matrix view, Matrix projection)

@@ -78,6 +78,7 @@
     <Compile Include="Game1.cs" />
     <Compile Include="RoadTile.cs" />
     <Compile Include="Snowplow.cs" />
+    <Compile Include="TileHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

@@ -8,9 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace CG20120829q6SnowplowRoad {
     public class RoadTile {
-        private Texture2D _texture;
         private Vector3 _position;
-
 
         private VertexBuffer _vertexBuffer;
         private VertexPositionTexture[] _vertices;
@@ -20,8 +18,7 @@ namespace CG20120829q6SnowplowRoad {
 
         GraphicsDevice _device;
 
-        public RoadTile(GraphicsDevice device, Texture2D texture, Vector3 position, float scale) {
-            _texture = texture;
+        public RoadTile(GraphicsDevice device, Vector3 position, float scale) {
             _position = position;
             _device = device;
             _scale = scale;
@@ -73,7 +70,7 @@ namespace CG20120829q6SnowplowRoad {
                 * Matrix.CreateTranslation(_position);
 
             effect.World = world;
-
+            effect.CurrentTechnique.Passes[0].Apply();
             _device.SetVertexBuffer(_vertexBuffer);
             _device.Indices = _indexBuffer;
             _device.DrawIndexedPrimitives(PrimitiveType.TriangleList,0,0,_vertices.Length, 0, _indices.Length/3);

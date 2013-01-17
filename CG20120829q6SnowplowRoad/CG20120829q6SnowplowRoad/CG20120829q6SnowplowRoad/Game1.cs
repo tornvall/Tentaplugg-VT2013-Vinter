@@ -18,8 +18,7 @@ namespace CG20120829q6SnowplowRoad {
         SpriteBatch spriteBatch;
         Snowplow snowplow;
         Camera _camera;
-        RoadTile _roadtile;
-        Texture2D _texture;
+        TileHandler _tileHandler;
         BasicEffect _effect;
 
         public Game1() {
@@ -47,15 +46,14 @@ namespace CG20120829q6SnowplowRoad {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            snowplow = new Snowplow(Content, GraphicsDevice, new Vector3(0,200,0));
+            snowplow = new Snowplow(Content, GraphicsDevice, new Vector3(600,200,0));
             _camera = new Camera(GraphicsDevice, new Vector3(0,400,1000), Vector3.Zero);
 
-            _texture=Content.Load<Texture2D>("setts");
-            _roadtile = new RoadTile(GraphicsDevice, _texture, new Vector3(0,0,0), 500f);
+            _tileHandler = new TileHandler(GraphicsDevice, snowplow);
 
             _effect = new BasicEffect(GraphicsDevice);
             _effect.TextureEnabled = true;
-            _effect.Texture = _texture;
+            _effect.Texture = Content.Load<Texture2D>("setts");
             
             // TODO: use this.Content to load your game content here
         }
@@ -79,6 +77,10 @@ namespace CG20120829q6SnowplowRoad {
                 this.Exit();
 
             snowplow.Update(gameTime);
+            
+            _camera.Update(_camera.Position, snowplow.Position);
+
+            _tileHandler.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -94,9 +96,8 @@ namespace CG20120829q6SnowplowRoad {
 
             _effect.View = _camera.View;
             _effect.Projection = _camera.Projection;
-            _effect.CurrentTechnique.Passes[0].Apply();
-
-            _roadtile.Draw(_effect);
+           
+            _tileHandler.Draw(_effect);
 
             base.Draw(gameTime);
         }
