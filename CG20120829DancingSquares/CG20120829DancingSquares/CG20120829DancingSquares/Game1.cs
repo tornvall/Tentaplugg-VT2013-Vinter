@@ -43,7 +43,7 @@ namespace CG20120829DancingSquares {
             effect.VertexColorEnabled = true;
 
             squareHandler = new SquareHandler(GraphicsDevice,new Vector3(0,0,0), 10);
-            camera = new Camera(GraphicsDevice, new Vector3(0,50,50));
+            camera = new Camera(GraphicsDevice, new Vector3(30,30,0));
             base.Initialize();
         }
 

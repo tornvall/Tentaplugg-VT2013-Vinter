@@ -45,28 +45,28 @@ namespace CG20120829DancingSquares {
             _vertices = new VertexPositionColor[8];
 
             //Top Front Left
-            _vertices[0] = new VertexPositionColor(_position+new Vector3(-1,1,1), Color.Red);
+            _vertices[0] = new VertexPositionColor(new Vector3(-1,1,1), Color.Red);
 
             //Top Front Right
-            _vertices[1] = new VertexPositionColor(_position + new Vector3(1, 1, 1), Color.Red);
+            _vertices[1] = new VertexPositionColor(new Vector3(1, 1, 1), Color.Red);
 
             //Top Back Right
-            _vertices[2] = new VertexPositionColor(_position + new Vector3(1, 1, -1), Color.Red);
+            _vertices[2] = new VertexPositionColor(new Vector3(1, 1, -1), Color.Red);
 
             //Top Back Left
-            _vertices[3] = new VertexPositionColor(_position + new Vector3(-1, 1, -1), Color.Red);
+            _vertices[3] = new VertexPositionColor(new Vector3(-1, 1, -1), Color.Red);
 
             //Bottom Front Left
-            _vertices[4] = new VertexPositionColor(_position + new Vector3(-1, -1, 1), Color.Red);
+            _vertices[4] = new VertexPositionColor(new Vector3(-1, -1, 1), Color.Red);
 
             //Bottom Front Right
-            _vertices[5] = new VertexPositionColor(_position + new Vector3(1, -1, 1), Color.Red);
+            _vertices[5] = new VertexPositionColor(new Vector3(1, -1, 1), Color.Red);
 
             //Bottom Back Right
-            _vertices[6] = new VertexPositionColor(_position + new Vector3(1, -1, -1), Color.Red);
+            _vertices[6] = new VertexPositionColor(new Vector3(1, -1, -1), Color.Red);
 
             //Bottom Back Left
-            _vertices[7] = new VertexPositionColor(_position + new Vector3(-1, -1, -1), Color.Red);
+            _vertices[7] = new VertexPositionColor(new Vector3(-1, -1, -1), Color.Red);
         }
 
         private void InitializeIndices() {
