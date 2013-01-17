@@ -17,6 +17,7 @@ namespace CG20120829q6SnowplowRoad {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Snowplow snowplow;
+        Camera _camera;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
@@ -44,7 +45,7 @@ namespace CG20120829q6SnowplowRoad {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             snowplow = new Snowplow(Content, GraphicsDevice, Vector3.Zero);
-
+            _camera = new Camera(GraphicsDevice, new Vector3(0,50,50));
             // TODO: use this.Content to load your game content here
         }
 
