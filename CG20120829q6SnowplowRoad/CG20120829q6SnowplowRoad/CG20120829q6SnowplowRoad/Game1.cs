@@ -66,7 +66,7 @@ namespace CG20120829q6SnowplowRoad {
             if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            snowplow.Update();
+            snowplow.Update(gameTime);
 
             base.Update(gameTime);
         }
