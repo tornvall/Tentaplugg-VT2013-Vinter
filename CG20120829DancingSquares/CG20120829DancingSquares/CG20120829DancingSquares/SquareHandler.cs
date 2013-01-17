@@ -8,9 +8,9 @@ using Microsoft.Xna.Framework;
 namespace CG20120829DancingSquares {
     public class SquareHandler {
 
-        List<Square> _squares;
-        Vector3 _position;
-        Random _random;
+        private List<Square> _squares;
+        private Vector3 _position;
+        private Random _random;
 
         public SquareHandler(GraphicsDevice device, Vector3 position, int numOfSquares) {
             _position = position;
@@ -33,7 +33,7 @@ namespace CG20120829DancingSquares {
 
         public void Draw(BasicEffect effect) {
             foreach(Square item in _squares)
-                item.Draw(effect, Matrix.CreateTranslation(_position));
+                item.Draw(effect, Matrix.Identity);
         }
     }
 }

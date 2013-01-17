@@ -8,18 +8,17 @@ using Microsoft.Xna.Framework;
 namespace CG20120829DancingSquares {
     public class Square {
 
-        VertexBuffer _vertexBuffer;
-        IndexBuffer _indexBuffer;
+        private VertexBuffer _vertexBuffer;
+        private IndexBuffer _indexBuffer;
 
+        private int[] _indices;
+        private VertexPositionColor[] _vertices;
 
-        int[] _indices;
-        VertexPositionColor[] _vertices;
+        private GraphicsDevice _device;
 
-        GraphicsDevice _device;
-
-        Vector3 _position;
-        float _scale;
-        float _rotX;
+        private Vector3 _position;
+        private float _scale;
+        private float _rotX;
 
         public Square(GraphicsDevice device, Vector3 position, float scale) {
             _device = device;
