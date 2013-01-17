@@ -22,6 +22,9 @@ namespace CG20120109q4Pyramid {
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Pyramid pyramid;
+        SimpleCamera camera;
+        BasicEffect effect;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
@@ -36,6 +39,12 @@ namespace CG20120109q4Pyramid {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
+            pyramid = new Pyramid(GraphicsDevice, new Vector3(0, 0, 0), 0.5f, Color.Red);
+            camera = new SimpleCamera(GraphicsDevice.Viewport.AspectRatio);
+
+            effect = new BasicEffect(GraphicsDevice);
+            effect.VertexColorEnabled = true;
+
 
             base.Initialize();
         }
@@ -68,6 +77,16 @@ namespace CG20120109q4Pyramid {
             // Allows the game to exit
             if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
+            KeyboardState kb = Keyboard.GetState();
+
+            if(kb.IsKeyDown(Keys.Escape))
+                Exit();
+            if(kb.IsKeyDown(Keys.X))
+                pyramid.RotX += 0.1f;
+            if(kb.IsKeyDown(Keys.Y))
+                pyramid.RotY += 0.1f;
+            if(kb.IsKeyDown(Keys.Z))
+                pyramid.RotZ += 0.1f;
 
             // TODO: Add your update logic here
 
@@ -81,7 +100,12 @@ namespace CG20120109q4Pyramid {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+
+            effect.View = camera.View;
+            effect.Projection = camera.Projection;
+
             // TODO: Add your drawing code here
+            pyramid.Draw(effect, Matrix.Identity);
 
             base.Draw(gameTime);
         }
