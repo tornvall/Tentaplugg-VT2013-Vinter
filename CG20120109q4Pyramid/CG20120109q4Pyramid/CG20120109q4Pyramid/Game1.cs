@@ -11,7 +11,13 @@ using Microsoft.Xna.Framework.Media;
 
 namespace CG20120109q4Pyramid {
     /// <summary>
-    /// This is the main type for your game
+    /// Create a  program that displays a pyramid in  the middle of the screen. The pyramid 
+    /// should be able to rotate rotating around the origin of the world (0,0,0) (x-, y- and zaxis)
+    /// when the x, y or z buttons are pressed.  The pyramid should be defined in a 
+    /// separate class and should be drawn using indexed vertices that are uploaded to the 
+    /// GPU using vertex buffers.
+    /// 
+    /// Drawing the pyramid  without indexing and uploading the vertices to the GPU can result in maximum 4p. (7p)
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
