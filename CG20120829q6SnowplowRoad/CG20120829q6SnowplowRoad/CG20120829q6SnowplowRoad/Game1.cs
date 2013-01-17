@@ -16,6 +16,7 @@ namespace CG20120829q6SnowplowRoad {
     public class Game1 : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Snowplow snowplow;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
@@ -42,7 +43,7 @@ namespace CG20120829q6SnowplowRoad {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            Snowplow snowplow = new Snowplow(Content, new Vector3());
+            snowplow = new Snowplow(Content, GraphicsDevice, new Vector3());
 
             // TODO: use this.Content to load your game content here
         }
@@ -65,7 +66,7 @@ namespace CG20120829q6SnowplowRoad {
             if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // TODO: Add your update logic here
+            snowplow.Update();
 
             base.Update(gameTime);
         }
@@ -77,7 +78,7 @@ namespace CG20120829q6SnowplowRoad {
         protected override void Draw(GameTime gameTime) {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            snowplow.Draw();
 
             base.Draw(gameTime);
         }
