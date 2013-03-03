@@ -14,7 +14,6 @@ namespace CG20120829q6SnowplowRoad {
         private Vector3 _position;
         private float _rotation;
 
-        Matrix[] boneTransforms;
         private bool containerRotationPositive = true;
         private ModelBone containerBone;
         private Matrix containerTransform;
@@ -34,17 +33,11 @@ namespace CG20120829q6SnowplowRoad {
 
             containerBone = _model.Bones["Cube.013"];
             containerTransform = containerBone.Transform;
-
-            // Allocate the transform matrix array.
-            boneTransforms = new Matrix[_model.Bones.Count];
         }
 
         public void Update(GameTime gameTime)
         {
             _position.X -= 2f;
-
-            //_rotation += (float)gameTime.ElapsedGameTime.TotalMilliseconds *
-            //    MathHelper.ToRadians(0.1f);
 
             if (containerRotationPositive)
             {
@@ -62,11 +55,8 @@ namespace CG20120829q6SnowplowRoad {
 
         public void Draw(Matrix view, Matrix projection)
         {
-            // Set the position of the camera in world space, for our view matrix.
-            //Vector3 cameraPosition = new Vector3(0.0f, 50.0f, 1000.0f);
-
-            Matrix containerRotation = Matrix.CreateRotationX(containerRotationValue);
-            containerBone.Transform = containerRotation * containerTransform;
+            // Set the position of the camera in world space, for our view matrix.            
+            containerBone.Transform = Matrix.CreateRotationX(containerRotationValue) * containerTransform;
 
             // Copy any parent transforms.
             Matrix[] transforms = new Matrix[_model.Bones.Count];
@@ -85,12 +75,6 @@ namespace CG20120829q6SnowplowRoad {
                         * Matrix.CreateTranslation(_position);
                     effect.View = view;
                     effect.Projection = projection;
-
-                    /*effect.View = Matrix.CreateLookAt(cameraPosition,
-                        Vector3.Zero, Vector3.Up);
-                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(
-                        MathHelper.ToRadians(45.0f), device.Viewport.AspectRatio,
-                        1.0f, 10000.0f);*/
                 }
                 // Draw the mesh, using the effects set above.
                 mesh.Draw();
