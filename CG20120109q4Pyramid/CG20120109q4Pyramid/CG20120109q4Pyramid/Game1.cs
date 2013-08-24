@@ -25,6 +25,9 @@ namespace CG20120109q4Pyramid {
         Pyramid pyramid;
         SimpleCamera camera;
         BasicEffect effect;
+        Axis axisX;
+        Axis axisY;
+        Axis axisZ;
 
         public Game1() {
             graphics = new GraphicsDeviceManager(this);
@@ -39,12 +42,15 @@ namespace CG20120109q4Pyramid {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-            pyramid = new Pyramid(GraphicsDevice, new Vector3(0, 0, 0), 0.5f, Color.Red);
-            camera = new SimpleCamera(GraphicsDevice.Viewport.AspectRatio);
+            pyramid = new Pyramid(GraphicsDevice, new Vector3(0, 0, 0), 0.5f);
+            camera = new SimpleCamera(GraphicsDevice.Viewport.AspectRatio, new Vector3(20,10,20), Vector3.Zero);
 
             effect = new BasicEffect(GraphicsDevice);
             effect.VertexColorEnabled = true;
 
+            axisX = new Axis(GraphicsDevice, new Ray(Vector3.Zero, Vector3.UnitX), Color.Red);
+            axisY = new Axis(GraphicsDevice, new Ray(Vector3.Zero, Vector3.UnitY), Color.Green);
+            axisZ = new Axis(GraphicsDevice, new Ray(Vector3.Zero, Vector3.UnitZ), Color.Blue);
 
             base.Initialize();
         }
@@ -88,6 +94,20 @@ namespace CG20120109q4Pyramid {
             if(kb.IsKeyDown(Keys.Z))
                 pyramid.RotZ += 0.1f;
 
+            if(kb.IsKeyDown(Keys.Up))
+                pyramid.Position += new Vector3(0,0.2f,0);
+            if(kb.IsKeyDown(Keys.Down))
+                pyramid.Position += new Vector3(0, -0.2f, 0);
+            if(kb.IsKeyDown(Keys.Left))
+                pyramid.Position += new Vector3(-0.2f, 0, 0);
+            if(kb.IsKeyDown(Keys.Right))
+                pyramid.Position += new Vector3(0.2f, 0, 0);
+
+            if(kb.IsKeyDown(Keys.A))
+                pyramid.Position += new Vector3(0, 0, 0.2f);
+            if(kb.IsKeyDown(Keys.S))
+                pyramid.Position += new Vector3(0, 0, -0.2f);
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -106,6 +126,9 @@ namespace CG20120109q4Pyramid {
 
             // TODO: Add your drawing code here
             pyramid.Draw(effect, Matrix.Identity);
+            axisX.Draw(effect);
+            axisY.Draw(effect);
+            axisZ.Draw(effect);
 
             base.Draw(gameTime);
         }

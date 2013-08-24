@@ -17,9 +17,8 @@ namespace CG20120109q4Pyramid {
         private float _rotX;
         private float _rotY;
         private float _rotZ;
-        private Vector3 _position;
-        private float _scale;
-        private Color _color;        
+        public Vector3 Position { get; set; }
+        private float _scale;     
 
         #endregion
 
@@ -38,41 +37,35 @@ namespace CG20120109q4Pyramid {
         }
         #endregion
 
-        public Pyramid(GraphicsDevice device, Vector3 position, float scale, Color color) {
+        public Pyramid(GraphicsDevice device, Vector3 position, float scale) {
             _device = device;
-            _position = position;
+            Position = position;
             _scale = scale;
-            _color = color;
             _rotX = 0;
             _rotY = 0;
             _rotZ = 0;
 
             this.InitializeVertices();
             this.IntitializeIndices();
-
-            _vertexBuffer = new VertexBuffer(device, typeof(VertexPositionColor), _vertices.Length, BufferUsage.None);
-            _indexBuffer = new IndexBuffer(device, typeof(int), _indices.Length, BufferUsage.None);
-
-            _vertexBuffer.SetData<VertexPositionColor>(_vertices);
-            _indexBuffer.SetData<int>(_indices);            
+            this.InitializeBuffer();
         }
         private void InitializeVertices() {
             _vertices = new VertexPositionColor[5];
 
             // Top
-            _vertices[0] = new VertexPositionColor(new Vector3(0, 10, 0), _color);
+            _vertices[0] = new VertexPositionColor(new Vector3(0, 10, 0), Color.Red);
 
             // Bottom Front Left
-            _vertices[1] = new VertexPositionColor(new Vector3(-10, 0, 10), _color);           
+            _vertices[1] = new VertexPositionColor(new Vector3(-10, 0, 10), Color.Blue);           
 
             // Bottom Front Right
-            _vertices[2] = new VertexPositionColor(new Vector3(10, 0, 10), _color);
+            _vertices[2] = new VertexPositionColor(new Vector3(10, 0, 10), Color.Yellow);
 
             // Bottom Back Right
-            _vertices[3] = new VertexPositionColor(new Vector3(10, 0, -10), _color);
+            _vertices[3] = new VertexPositionColor(new Vector3(10, 0, -10), Color.Green);
 
             // Bottom Back Left
-            _vertices[4] = new VertexPositionColor(new Vector3(-10, 0, -10), _color);
+            _vertices[4] = new VertexPositionColor(new Vector3(-10, 0, -10), Color.Purple);
         }
 
         private void IntitializeIndices() {
@@ -109,12 +102,19 @@ namespace CG20120109q4Pyramid {
             _indices[17] = 4;
         }
 
+        private void InitializeBuffer() {
+            _vertexBuffer = new VertexBuffer(_device, typeof(VertexPositionColor), _vertices.Length, BufferUsage.None);
+            _indexBuffer = new IndexBuffer(_device, typeof(int), _indices.Length, BufferUsage.None);
+
+            _vertexBuffer.SetData<VertexPositionColor>(_vertices);
+            _indexBuffer.SetData<int>(_indices);            
+        }
 
         public void Draw(BasicEffect effect, Matrix parent){
             Matrix world = Matrix.Identity
                 * Matrix.CreateScale(_scale)
                 * Matrix.CreateFromYawPitchRoll(_rotY, _rotX, _rotZ)
-                * Matrix.CreateTranslation(_position);
+                * Matrix.CreateTranslation(Position);
             
             effect.World = world * parent;
             effect.VertexColorEnabled = true;

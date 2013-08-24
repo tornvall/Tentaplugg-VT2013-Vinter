@@ -14,8 +14,8 @@ namespace CG20120109q4Pyramid
         private Matrix projection;
         private Matrix view;
 
-        private Vector3 cameraPosition = new Vector3(0.0f, 0.0f, 15f);
-        private Vector3 cameraTarget = Vector3.Zero;
+        private Vector3 cameraPosition;
+        private Vector3 cameraTarget;
         private Vector3 cameraUpVector = Vector3.Up;
 
         #endregion
@@ -33,8 +33,11 @@ namespace CG20120109q4Pyramid
 
         #endregion
 
-        public SimpleCamera(float aspectRatio)
+        public SimpleCamera(float aspectRatio, Vector3 position, Vector3 target)
         {
+            cameraPosition = position;
+            cameraTarget = target;
+
             Matrix.CreatePerspectiveFieldOfView(
                 MathHelper.PiOver4,
                 aspectRatio,
